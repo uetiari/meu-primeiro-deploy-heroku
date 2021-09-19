@@ -47,6 +47,7 @@ class Login extends React.Component {
         <h1> Login </h1>
         <form>
           <input
+            id="name"
             type="text"
             data-testid="login-name-input"
             value={ name }
