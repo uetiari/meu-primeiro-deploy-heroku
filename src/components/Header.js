@@ -10,6 +10,7 @@ class Header extends React.Component {
       loading: true,
     };
   }
+  // Depois de ver uma dúvida no Slack sobre o mesmo Req.3 consegui resolver dentro da func. componentDidMount
 
   componentDidMount() {
     getUser().then((data) => {
