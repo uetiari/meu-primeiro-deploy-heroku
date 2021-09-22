@@ -7,6 +7,7 @@ class Album extends React.Component {
       <div data-testid="page-album">
         <Header />
       </div>
+      // vai mostrar sua lista de música
     );
   }
 }
