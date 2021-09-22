@@ -96,5 +96,5 @@ class Search extends React.Component {
 
 export default Search;
 
-// Consultei o Repositório da Beatriz pra entender melhor a lógica e aplicar ao meu código
+// Ref.: Consultei o Repositório da Beatriz pra entender melhor a lógica e aplicar ao meu código.
 // https://github.com/tryber/sd-014-b-project-trybetunes/pull/73/
