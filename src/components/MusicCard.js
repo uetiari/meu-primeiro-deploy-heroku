@@ -9,24 +9,30 @@ class MusicCard extends React.Component {
 
     this.state = {
       loading: false,
+      checked: false,
     };
   }
 
-  favoriteFunc = async () => {
-    const { music } = this.props;
+  favoriteFunc = async (event) => {
     this.setState({
       loading: true,
     });
-    await addSong(music);
 
-    this.setState({
-      loading: false,
-    });
+    // Ref.: Faz a busca pelo trackId, e compara no checked por ele tb
+    // Consultei o repo: https://github.com/tryber/sd-014-b-project-trybetunes/pull/24/
+    if (event.target.checked) {
+      await addSong(event.target.trackId);
+      this.setState({
+        loading: false,
+        checked: true,
+      });
+    }
   }
 
   render() {
     const { previewUrl, name, trackId } = this.props;
-    const { loading } = this.state;
+
+    const { loading, checked } = this.state;
     if (loading) return <Loading />;
 
     return (
@@ -43,6 +49,8 @@ class MusicCard extends React.Component {
             type="checkbox"
             data-testid={ `checkbox-music-${trackId}` }
             onChange={ this.favoriteFunc }
+            id={ trackId }
+            checked={ checked }
           />
           Favorita
         </label>
@@ -55,7 +63,6 @@ MusicCard.propTypes = {
   previewUrl: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   trackId: PropTypes.number.isRequired,
-  music: PropTypes.string.isRequired,
 };
 
 export default MusicCard;
